@@ -30,7 +30,7 @@ dotenv.config();
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'PGDBroot@DS',
+      password: 'password',
       database: 'postgres',
       autoLoadEntities: true,
       synchronize: true,
