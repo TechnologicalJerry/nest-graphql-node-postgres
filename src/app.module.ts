@@ -23,11 +23,11 @@ import { ConfigModule } from '@nestjs/config';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'postgres',
+      host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'postgres',
-      database: 'nest-graphql-node-postgres',
+      password: process.env.DATABASE_PASSWORD,
+      database: 'postgres',
       entities: [__dirname + '/**/*.entity{.ts, .js}'],
       synchronize: true
     })
