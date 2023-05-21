@@ -21,13 +21,13 @@ export class UsersService {
     return await this.userRepository.find();
   }
 
-  async findOne(userId: string): Promise<User> {
-    const user = await this.userRepository.findOne(userId);
-    if (!user) {
-      throw new NotFoundException(`User #${userId} not found`);
-    }
-    return user;
-  }
+  // async findOne(userId: string): Promise<User> {
+  //   const user = await this.userRepository.findOne(userId);
+  //   if (!user) {
+  //     throw new NotFoundException(`User #${userId} not found`);
+  //   }
+  //   return user;
+  // }
 
   async update(
     userId: string,
@@ -43,16 +43,16 @@ export class UsersService {
     return this.userRepository.save(user);
   }
 
-  async remove(userId: string): Promise<User> {
-    const user = await this.findOne(userId);
-    await this.userRepository.remove(user);
-    return {
-      userId: userId,
-      firstName: '',
-      lastName: '',
-      email: '',
-      role: '',
-      exampleField: 0,
-    };
-  }
+  // async remove(userId: string): Promise<User> {
+  //   const user = await this.findOne(userId);
+  //   await this.userRepository.remove(user);
+  //   return {
+  //     userId: userId,
+  //     firstName: '',
+  //     lastName: '',
+  //     email: '',
+  //     role: '',
+  //     exampleField: 0,
+  //   };
+  // }
 }
