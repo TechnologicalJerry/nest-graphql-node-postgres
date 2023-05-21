@@ -7,6 +7,9 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Module({
   imports: [
@@ -22,15 +25,16 @@ import { ConfigModule } from '@nestjs/config';
       }
     }),
     TypeOrmModule.forRoot({
+      keepConnectionAlive: true,
       type: 'postgres',
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: process.env.DATABASE_PASSWORD,
+      password: 'PGDBroot@DS',
       database: 'postgres',
-      entities: [__dirname + '/**/*.entity{.ts, .js}'],
-      synchronize: true
-    })
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
